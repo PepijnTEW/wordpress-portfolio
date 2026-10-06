@@ -1,0 +1,141 @@
+/*
+Theme Name: ptw-dev
+Theme URI: http://voorbeeld.com/
+Author: Pepijn te Winkel
+Author URI: https://pepijntw.com/
+Description: Een zelfgemaakt WordPress thema.
+Version: 1.0
+*/
+
+@font-face {
+    font-family: 'Jetbrains Mono';
+    src: url('assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #F4F4F6;
+    font-family: 'Inter', sans-serif;
+}
+.site-header {
+    height: 80px;
+    border-bottom: #E2E2E6 solid 1px;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    color: #0B0B0C;
+    font-family: 'Jetbrains Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+}
+.content {
+    margin: 0px 160px;
+    border-left: #E2E2E6 solid 1px;
+}
+.title {
+    color: #0B0B0C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 84px;
+}
+.subtitle {
+    color: #0B0B0C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    font-size: 35px;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    width: 220px;
+    border: solid 1px;
+    font-family: 'Inter', sans-serif;
+    color: #0B0B0C;
+    font-size: 16px;
+    font-weight: 400;
+}
+.primary {
+    background-color: #FFFFFF;
+    border-color: #0B0B0C;
+}
+.secondary {
+    background-color: #F4F4F6;
+    border-color: #E2E2E6;
+}
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+    padding-top: 220px;
+    padding-left: 110px;
+}
+.hero-content{
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+}
+.cta-buttons{
+    padding-top: 40px;
+    display: flex;
+    gap: 50px;
+}
+.metadata-card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 360px;
+    width: 340px;
+    border: #E2E2E6 solid 1px;
+    color: #0B0B0C;
+    font-family: 'Jetbrains Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 24px;
+    animation: fadeUp 0.6s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+li {
+    text-indent: 20px;
+}
