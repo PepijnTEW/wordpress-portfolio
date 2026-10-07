@@ -1,6 +1,7 @@
 /*
-Theme Name: ptw-dev
+Theme Name: PTW Dev
 Theme URI: http://voorbeeld.com/
+Text Domain: ptw-dev
 Author: Pepijn te Winkel
 Author URI: https://pepijntw.com/
 Description: Een zelfgemaakt WordPress thema.
@@ -42,6 +43,22 @@ Version: 1.0
     }
 }
 
+:root {
+    --bg-color: #F4F4F6;
+    --primary-color: #0B0B0C;
+    --subtitle-color: #48484A;
+    --border-color: #D7D7DD;
+    --accent-background: #FFFFFF;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0B0B0C;
+    --primary-color: #F4F4F6;
+    --subtitle-color: #98989C;
+    --border-color: #2C2C2E;
+    --accent-background: #1C1C1E;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -51,38 +68,116 @@ Version: 1.0
 }
 
 body {
-    background-color: #F4F4F6;
+    background-color: var(--bg-color);
     font-family: 'Inter', sans-serif;
 }
 .site-header {
     height: 80px;
-    border-bottom: #E2E2E6 solid 1px;
+    border-bottom: var(--border-color) solid 1px;
     padding: 0px 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
+
 .logo {
-    color: #0B0B0C;
+    color: var(--primary-color);
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 400;
     font-size: 18px;
 }
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+    font-family: 'Jetbrains Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--primary-color);
+    padding: 8px 14px;
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.dropdown-btn:hover {
+    border-color: var(--border-color);
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    top: calc(100% - 1px);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    min-width: 100%;
+    width: max-content;
+    flex-direction: column;
+    white-space: nowrap;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.dropdown-content-btn {
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    font-family: 'Jetbrains Mono', monospace;
+    border: none;
+    box-sizing: border-box;
+    text-align: left;
+    transition: border 0.2s ease;
+}
+
+.dropdown-content-btn:hover {
+    background-color: var(--border-color);
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 .content {
-    margin: 0px 160px;
-    border-left: #E2E2E6 solid 1px;
+    margin-left: 160px;
+    padding-right: 160px;
+    border-left: var(--border-color) solid 1px;
+    border-bottom: var(--border-color) solid 1px;
 }
 .title {
-    color: #0B0B0C;
+    color: var(--primary-color);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 84px;
 }
+
 .subtitle {
-    color: #0B0B0C;
+    color: var(--subtitle-color);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
     font-size: 35px;
 }
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -91,43 +186,60 @@ body {
     width: 220px;
     border: solid 1px;
     font-family: 'Inter', sans-serif;
-    color: #0B0B0C;
+    color: var(--primary-color);
     font-size: 16px;
     font-weight: 400;
 }
+
 .primary {
-    background-color: #FFFFFF;
-    border-color: #0B0B0C;
+    background-color: var(--accent-background);
+    border-color: var(--primary-color);
+    transition: 0.2s ease;
 }
+
+.primary:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-background);
+    border-color: var(--primary-color);
+}
+
 .secondary {
-    background-color: #F4F4F6;
-    border-color: #E2E2E6;
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    transition: border-color 0.2s ease;
 }
+
+.secondary:hover{
+    border-color: var(--primary-color);
+}
+
 .hero-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     min-height: calc(100vh - 80px);
-    padding-top: 220px;
-    padding-left: 110px;
+    padding: 220px 110px 0px;
 }
+
 .hero-content{
     animation: fadeUp 0.6s ease-out 0.2s forwards;
     opacity: 0;
 }
+
 .cta-buttons{
     padding-top: 40px;
     display: flex;
     gap: 50px;
 }
+
 .metadata-card {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: 360px;
     width: 340px;
-    border: #E2E2E6 solid 1px;
-    color: #0B0B0C;
+    border: var(--border-color) solid 1px;
+    color: var(--primary-color);
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 400;
     font-size: 18px;
@@ -138,4 +250,13 @@ body {
 
 li {
     text-indent: 20px;
+}
+
+body,
+.site-header,
+.dropdown-btn,
+a.dropdown-content-btn,
+.metadata-card,
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
