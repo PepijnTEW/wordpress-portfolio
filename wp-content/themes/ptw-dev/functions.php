@@ -25,6 +25,7 @@ function ptw_enqueue_scripts(){
 function ptw_dev_load_textdomain() {
     load_theme_textdomain('ptw-dev', get_template_directory());
 }
+
 add_action('after_setup_theme', 'ptw_dev_load_textdomain');
 add_action('wp_enqueue_scripts', 'ptw_enqueue_styles');
 add_action('wp_enqueue_scripts', 'ptw_enqueue_scripts');

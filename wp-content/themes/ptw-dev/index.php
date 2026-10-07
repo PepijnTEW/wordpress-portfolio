@@ -9,7 +9,7 @@
             <h1 class="title">Pepijn te Winkel</h1>
             <p class="subtitle"><?php esc_html_e('Fullstack Developer','ptw-dev'); ?></p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn primary"><?php esc_html_e('Go to projects', 'ptw-dev'); ?></a>
+                <a href="#projects-container" class="btn primary"><?php esc_html_e('Go to projects', 'ptw-dev'); ?></a>
                 <a href="#about" class="btn secondary"><?php esc_html_e('About me', 'ptw-dev'); ?></a>
             </div>
         </div>
@@ -35,23 +35,73 @@
         </div>
     </div>
 
-    <div class="projects-container content">
-        <div class="projects-wrapper">
+    <div id="projects-container" class="projects-container content">
+        <div class="projects-grid">
+        <?php
+        $args = array(
+            'post_type' => 'project',
+            'posts_per_type' => 3,
+            'meta_query' => array(
+                array(
+                    'key' => '_cpm_is_showcased',
+                    'value' => 1,
+                ),
+            ),
+        );
+
+        $showcase_query = new WP_Query($args);
+
+        if($showcase_query->have_posts()) :
+            while($showcase_query->have_posts()):
+                $showcase_query->the_post();
+
+                $demo_url   = get_post_meta( get_the_ID(), '_cpm_demo_url', true );
+                $github_url = get_post_meta( get_the_ID(), '_cpm_github_url', true );
+                $date = get_post_meta( get_the_ID(), '_cpm_year_made', true );
+
+                ?>
+
             <div class="project-card card">
-                <div class="project-image card-image"></div>
-                <h3 class="project-title">title</h3>
-                <p class="project-description">description</p>
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <?php the_post_thumbnail( 'medium', array(
+                        'class' => 'project-image',
+                    )); ?>
+                <?php endif; ?>
+                <div class="project-info">
+                    <div class ="project-top-wrapper">
+                        <p class="project-title">// <?php the_title(); ?></p>
+                        <?php if ( ! empty( $date) ) : ?>
+                            <p class="project-date"><?php echo $date; ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="project-bottom-wrapper">
+                        <div class="project-description">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <div class="project-links">
+                            <div>
+                                <?php if ( ! empty( $demo_url ) ) : ?>
+                                    <a class="project-button" href="<?php echo esc_url( $demo_url ); ?>" target="_blank" rel="noopener">LIVE DEMO</a>
+                                <?php endif; ?>
+
+                                <?php if ( ! empty( $github_url ) ) : ?>
+                                    <a class="project-button" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener">GITHUB</a>
+                                <?php endif; ?>
+                            </div>
+                            <a class="project-button read-more-button" href="#"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+            else :
+                echo '<p>No projects found for the showcase yet.</p>';
+            endif;
+        ?>
         </div>
-    </div>
-    <div class="projects-container content">
-        <div class="projects-wrapper">
-            <div class="project-card card">
-                <div class="project-image card-image"></div>
-                <h3 class="project-title">title</h3>
-                <p class="project-description">description</p>
-            </div>
-        </div>
+        <a href="#moreprojects" class="more-projects-button"><?php esc_html_e('MORE PROJECTS ->', 'ptw-detov'); ?></a>
     </div>
 </div>
 

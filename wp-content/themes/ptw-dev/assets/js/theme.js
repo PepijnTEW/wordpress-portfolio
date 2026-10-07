@@ -16,7 +16,7 @@ function updateThemeButtonLabel(mode) {
     activeModeText = themeDict.light;
   }
 
-  btn.textContent = `[${themeDict.theme}: ${activeModeText} ▾]`;
+  btn.textContent = `${themeDict.theme}: [${activeModeText}] ▾`;
 }
 
 (function () {

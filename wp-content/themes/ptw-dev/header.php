@@ -37,7 +37,7 @@
                             }
                         }
                 ?>
-                <button id="lang-btn" class="dropdown-btn">[<?php esc_html_e('LANG', 'ptw-dev'); ?>: <?php echo esc_html($current_lang_code); ?> ▾]</button>
+                <button id="lang-btn" class="dropdown-btn"><?php esc_html_e('LANG', 'ptw-dev'); ?>: [<?php echo esc_html($current_lang_code); ?>] ▾</button>
                 <div class="dropdown-content">
                     <?php foreach($translations as $lang) : ?>
                         <a class="dropdown-content-btn" href="<?php echo esc_url($lang['url']); ?>">
@@ -46,15 +46,15 @@
                     <?php endforeach; ?>
                 </div>
                 <?php } else { ?>
-                    <button class="dropdown-btn">[LANG: NL ▾]</button>
+                    <button class="dropdown-btn">LANG: NL ▾</button>
                 <?php } ?>
             </div>
             <div class="dropdown">
-                <button id="theme-btn" class="dropdown-btn">[<?php esc_html_e('THEME', 'ptw-dev'); ?>: <?php esc_html_e('AUTO', 'ptw-dev'); ?> ▾]</button>
+                <button id="theme-btn" class="dropdown-btn"><?php esc_html_e('THEME', 'ptw-dev'); ?>: <?php esc_html_e('AUTO', 'ptw-dev'); ?> ▾</button>
                 <div class="dropdown-content">
-                    <a class="dropdown-content-btn" href="#" onclick="setTheme('light'); return false;">[<?php esc_html_e('LIGHT', 'ptw-dev'); ?>]</a>
-                    <a class="dropdown-content-btn" href="#" onclick="setTheme('dark'); return false;">[<?php esc_html_e('DARK', 'ptw-dev'); ?>]</a>
-                    <a class="dropdown-content-btn" href="#" onclick="setTheme('system'); return false;">[<?php esc_html_e('AUTO', 'ptw-dev'); ?>]</a>
+                    <a class="dropdown-content-btn" href="#" onclick="setTheme('light'); return false;"><?php esc_html_e('LIGHT', 'ptw-dev'); ?></a>
+                    <a class="dropdown-content-btn" href="#" onclick="setTheme('dark'); return false;"><?php esc_html_e('DARK', 'ptw-dev'); ?></a>
+                    <a class="dropdown-content-btn" href="#" onclick="setTheme('system'); return false;"><?php esc_html_e('AUTO', 'ptw-dev'); ?></a>
                 </div>
             </div>
         </div>

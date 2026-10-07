@@ -188,6 +188,7 @@ html, body {
     &::-webkit-scrollbar {
         display: none;
     }
+
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -199,6 +200,7 @@ html, body {
     padding: 0px 160px;
     border-bottom: var(--border-color) solid 1px;
 }
+
 .title {
     color: var(--primary-color);
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -288,6 +290,104 @@ li {
 }
 .projects-container{
     min-height: calc(100vh - 80px);
+    padding: 220px 110px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.projects-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.project-card {
+    width: 397px;
+    height: 420px;
+    border: var(--border-color) solid 1px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeUp 0.2s ease-out 0.2s forwards;
+    opacity: 0;
+    timeline-trigger: --trigger view() entry 100% exit 0%;
+    animation-trigger: --trigger play-forwards;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.project-info {
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-top-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Jetbrains Mono';
+    font-size: 18px;
+    color: var(--primary-color);
+    padding-bottom: 12px;
+}
+
+.project-bottom-wrapper {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Inter';
+    color: var(--subtitle-color);
+    font-size: 16px;
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.project-links > div {
+    display: flex;
+    gap: 12px;
+}
+
+.project-button {
+    opacity: 0.6;
+    border: 1px solid transparent;
+    color: var(--primary-color);
+    padding: 8px 14px;
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.project-button:hover {
+    opacity: 1;
+    border-color: var(--border-color);
+    color: var(--primary-color);
+}
+
+.more-projects-button {
+    opacity: 0.6;
+    align-self: flex-end;
+    margin-top: 20px;
+    font-family: 'Jetbrains Mono', monospace;
+    color: var(--primary-color);
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.projects-container .more-projects-button:hover {
+    opacity: 1;
+    background: none;
+    color: var(--primary-color);
 }
 
 body,
