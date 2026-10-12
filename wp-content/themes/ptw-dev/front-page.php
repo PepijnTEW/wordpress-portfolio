@@ -105,11 +105,11 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
                         <div class="project-links">
                             <div>
                                 <?php if ( ! empty( $demo_url ) ) : ?>
-                                    <a class="ghost-btn" href="<?php echo esc_url( $demo_url ); ?>" target="_blank" rel="noopener">LIVE DEMO</a>
+                                    <a class="ghost-btn" href="<?php echo esc_url( $demo_url ); ?>" target="_blank" rel="noopener"><?php esc_html_e('LIVE DEMO', 'ptw-dev'); ?></a>
                                 <?php endif; ?>
 
                                 <?php if ( ! empty( $github_url ) ) : ?>
-                                    <a class="ghost-btn" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener">GITHUB</a>
+                                    <a class="ghost-btn" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener"><?php esc_html_e('GITHUB', 'ptw-dev'); ?></a>
                                 <?php endif; ?>
                             </div>
                             <a class="ghost-btn" href="#"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
@@ -128,7 +128,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
         <a href="#moreprojects" class="link-more"><?php esc_html_e('MORE PROJECTS ->', 'ptw-dev'); ?></a>
     </section>
     <section id="about-container" class="about-container section">
-        <div class="grid-row">
+        <div class="grid-row about-row">
         <div class="card about-card">
 
             <div class="chapter">
@@ -207,6 +207,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
     let isScrolling = false;
 
     container.addEventListener('wheel', (e) => {
+      if (window.matchMedia('(max-width: 900px)').matches) return;
       if (isScrolling) {
         e.preventDefault();
         return;

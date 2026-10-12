@@ -115,24 +115,18 @@ ul {
 }
 
 .metadata-card {
-    width: 340px;
-    height: 360px;
+    width: min(360px, 100%);
+    min-height: 360px;
     padding: 24px;
 }
 
 .project-card {
-    width: 397px;
     height: 420px;
 }
 
+.specs-card,
 .about-card {
-    width: 420px;
-    height: 420px;
-    padding: 24px;
-}
-.specs-card {
-    width: 420px;
-    height: 420px;
+    min-height: 420px;
     padding: 24px;
 }
 
@@ -144,7 +138,8 @@ ul {
 
 .section {
     min-height: calc(100vh - var(--header-height));
-    padding: 220px 110px;
+    padding: 220px clamp(20px, 6vw, 110px);
+
 
     display: flex;
 
@@ -160,6 +155,7 @@ ul {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
     scrollbar-width: none;
 }
 
@@ -293,11 +289,13 @@ ul {
   position: fixed; top: 1rem; right: 1rem;
   width: 32px; display: flex; flex-direction: column; gap: 6px;
 }
+
 .indicator span {
   height: 4px; border-radius: 2px;
   background: var(--border-color);
   transition: background .3s, transform .3s;
 }
+
 .indicator span.active {
   background: var(--subtitle-color);
   transform-origin: right;
@@ -306,12 +304,12 @@ ul {
 .title {
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 84px;
+    font-size: clamp(2.5rem, 8vw, 5.25rem);
 }
 
 .subtitle {
     color: var(--subtitle-color);
-    font-size: 35px;
+    font-size: clamp(1.25rem, 3vw, 2.2rem);
 }
 
 .action-btn {
@@ -355,13 +353,21 @@ ul {
 }
 
 .grid-row {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
     width: 100%;
 }
 .project-row {
     justify-content: space-between;
 }
+.about-row {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
 .project-image {
     width: 100%;
     height: auto;
@@ -431,4 +437,52 @@ ul {
 
 .ascii{
     font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    :root { --header-height: 64px; }
+
+    .sidebar,
+    .indicator {
+        display: none;
+    }
+
+    .scroll-container {
+        margin-left: 0;
+        scroll-snap-type: none;
+    }
+
+    .section {
+        scroll-snap-align: none;
+        padding: 48px 20px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    .cta-buttons {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 24px;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .ascii {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .site-header {
+        padding: 0 12px;
+    }
+
+    .header-controls { gap: 4px; }
+    .ghost-btn { padding: 8px 8px; font-size: 12px; }
+    .logo { font-size: 15px; }
 }
