@@ -1,142 +1,38 @@
-<?php get_header(); ?>
-<aside class="sidebar">
-    sidebar
-</aside>
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ *
+ * @package PTW_Dev
+ */
 
-<div class ="scroll-container">
-    <div class="hero-container content">
-        <div class="hero-content">
-            <h1 class="title">Pepijn te Winkel</h1>
-            <p class="subtitle"><?php esc_html_e('Fullstack Developer','ptw-dev'); ?></p>
-            <div class="cta-buttons">
-                <a href="#projects-container" class="btn primary"><?php esc_html_e('Go to projects', 'ptw-dev'); ?></a>
-                <a href="#about" class="btn secondary"><?php esc_html_e('About me', 'ptw-dev'); ?></a>
-            </div>
-        </div>
-        <div class="metadata-card">
-            <div class="skills-section">
-                <span class="comment"><?php esc_html_e('// SKILLS', 'ptw-dev'); ?></span>
-                <ul>
-                    <li>[01] REACT</li>
-                    <li>[02] LARAVEL</li>
-                    <li>[03] TYPESCRIPT</li>
-                    <li>[04] TAILWINDCSS</li>
-                    <li>[05] LINUX</li>
-                </ul>
-            </div>
-            <div class="metadata-section">
-                <span class="comment"><?php esc_html_e('// METADATA', 'ptw-dev'); ?></span>
-                <ul>
-                    <li>[LO] HILVERSUM, NL</li>
-                    <li>[DA] <?php echo esc_html(date_i18n(get_option('date_format'))); ?></li>
-                    <li>[TI] <?php echo esc_html(date_i18n(get_option('time_format'))); ?></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+get_header();
+?>
 
-    <div id="projects-container" class="projects-container content">
-        <div class="projects-grid">
+<div class="site-content">
+    <main class="site-main">
         <?php
-        $args = array(
-            'post_type' => 'project',
-            'posts_per_type' => 3,
-            'meta_query' => array(
-                array(
-                    'key' => '_cpm_is_showcased',
-                    'value' => 1,
-                ),
-            ),
-        );
-
-        $showcase_query = new WP_Query($args);
-
-        if($showcase_query->have_posts()) :
-            while($showcase_query->have_posts()):
-                $showcase_query->the_post();
-
-                $demo_url   = get_post_meta( get_the_ID(), '_cpm_demo_url', true );
-                $github_url = get_post_meta( get_the_ID(), '_cpm_github_url', true );
-                $date = get_post_meta( get_the_ID(), '_cpm_year_made', true );
-
+        if ( have_posts() ) :
+            while ( have_posts() ) :
+                the_post();
                 ?>
-
-            <div class="project-card card">
-                <?php if ( has_post_thumbnail() ) : ?>
-                    <?php the_post_thumbnail( 'medium', array(
-                        'class' => 'project-image',
-                    )); ?>
-                <?php endif; ?>
-                <div class="project-info">
-                    <div class ="project-top-wrapper">
-                        <p class="project-title">// <?php the_title(); ?></p>
-                        <?php if ( ! empty( $date) ) : ?>
-                            <p class="project-date"><?php echo $date; ?></p>
-                        <?php endif; ?>
-                    </div>
-                    <div class="project-bottom-wrapper">
-                        <div class="project-description">
-                            <?php the_excerpt(); ?>
-                        </div>
-                        <div class="project-links">
-                            <div>
-                                <?php if ( ! empty( $demo_url ) ) : ?>
-                                    <a class="project-button" href="<?php echo esc_url( $demo_url ); ?>" target="_blank" rel="noopener">LIVE DEMO</a>
-                                <?php endif; ?>
-
-                                <?php if ( ! empty( $github_url ) ) : ?>
-                                    <a class="project-button" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener">GITHUB</a>
-                                <?php endif; ?>
-                            </div>
-                            <a class="project-button read-more-button" href="#"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <div><?php the_excerpt(); ?></div>
+                </article>
+                <?php
             endwhile;
-            wp_reset_postdata();
-            else :
-                echo '<p>No projects found for the showcase yet.</p>';
-            endif;
+
+            the_posts_navigation();
+
+        else :
+            echo '<p>No content found.</p>';
+        endif;
         ?>
-        </div>
-        <a href="#moreprojects" class="more-projects-button"><?php esc_html_e('MORE PROJECTS ->', 'ptw-detov'); ?></a>
-    </div>
+    </main>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.scroll-container');
-    if (!container) return;
-
-    let isScrolling = false;
-
-    container.addEventListener('wheel', (e) => {
-      if (isScrolling) {
-        e.preventDefault();
-        return;
-      }
-
-      if (Math.abs(e.deltaY) >= 50) {
-        e.preventDefault();
-
-        const direction = e.deltaY > 0 ? 1 : -1;
-        const targetScroll = container.scrollTop + (window.innerHeight * direction);
-
-        isScrolling = true;
-
-        container.scrollTo({
-          top: targetScroll,
-            behavior: 'smooth'
-          });
-
-        setTimeout(() => {
-            isScrolling = false;
-        }, 600);
-      }
-    }, { passive: false });
-  });
-</script>
-
-<?php get_footer(); ?>
+<?php
+get_footer();
