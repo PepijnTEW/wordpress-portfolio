@@ -197,6 +197,26 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
         <a href="#myblog" class="link-more"><?php esc_html_e('MY BLOG ->', 'ptw-dev'); ?></a>
 
     </section>
+    <section id="contact-container" class="contact-container section">
+        <div class="grid-row contact-row">
+            <div class="card about-card">
+                <div class="chapter">
+                    <h2 class="label"><?php esc_html_e('// CONTACT', 'ptw-dev'); ?></h2>
+                    <p class="about-content">
+                        <?php esc_html_e('Open to internships, projects and a good chat about hardware.', 'ptw-dev'); ?>
+                    </p>
+                </div>
+                <div class="chapter">
+                    <h3 class="label"><?php esc_html_e('// CHANNELS', 'ptw-dev'); ?></h3>
+                    <ul class="list">
+                        <li>[01] EMAIL : <a href="mailto:pepijntewinkel@gmail.com">pepijntewinkel@gmail.com</a></li>
+                        <li>[02] GITHUB : <a href="https://github.com/PepijnTEW" target="_blank" rel="noopener">PepijnTEW</a></li>
+                        <li>[03] LINKEDIN : <a href="https://www.linkedin.com/in/pepijn-te-winkel-91855724b/" target="_blank" rel="noopener">pepijn-te-winkel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script>

@@ -96,6 +96,9 @@ ul {
     text-indent: 20px;
 }
 
+.list a { color: inherit; transition: color 0.2s ease; }
+.list a:hover { color: var(--primary-color); text-decoration: underline; }
+
 .display {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
@@ -164,6 +167,7 @@ ul {
 }
 
 .hero-container {
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -180,6 +184,12 @@ ul {
     justify-content: space-between;
 
 }
+.contact-container {
+    padding-top: var(--header-height);
+    padding-bottom: var(--header-height);
+    align-items: center;
+}
+
 
 .site-header {
     position: relative;
@@ -366,6 +376,17 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     gap: 24px;
+}
+
+.contact-row {
+    grid-template-columns: minmax(0, 560px);
+    justify-content: center;
+}
+
+.contact-row .card {
+    justify-content: flex-start;
+    gap: 32px;
+    min-height: 0;
 }
 
 .project-image {
