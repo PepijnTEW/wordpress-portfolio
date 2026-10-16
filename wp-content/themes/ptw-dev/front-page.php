@@ -125,7 +125,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
             endif;
         ?>
         </div>
-        <a href="#moreprojects" class="link-more"><?php esc_html_e('MORE PROJECTS ->', 'ptw-dev'); ?></a>
+        <a href="archives/projects" class="link-more"><?php esc_html_e('MORE PROJECTS ->', 'ptw-dev'); ?></a>
     </section>
     <section id="about-container" class="about-container section">
         <div class="grid-row about-row">

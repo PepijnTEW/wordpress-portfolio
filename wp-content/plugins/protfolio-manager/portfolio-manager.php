@@ -28,6 +28,7 @@ function cpm_register_project_post_type() {
         'show_in_rest' => true,
         'menu_icon'     => 'dashicons-portfolio',
         'supports'      => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+        'rewrite'            => array( 'slug' => 'projects' ),
     );
     register_post_type( 'project', $args );
 }
