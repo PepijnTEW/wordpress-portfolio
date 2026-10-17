@@ -1,4 +1,9 @@
 <?php
+
+function ptw_dev_setup() {
+    add_theme_support( 'post-thumbnails' );
+}
+
 function ptw_enqueue_styles() {
     wp_enqueue_style('ptw-style', get_stylesheet_uri());
 }
@@ -26,6 +31,7 @@ function ptw_dev_load_textdomain() {
     load_theme_textdomain('ptw-dev', get_template_directory());
 }
 
+add_action( 'after_setup_theme', 'ptw_dev_setup' );
 add_action('after_setup_theme', 'ptw_dev_load_textdomain');
 add_action('wp_enqueue_scripts', 'ptw_enqueue_styles');
 add_action('wp_enqueue_scripts', 'ptw_enqueue_scripts');
