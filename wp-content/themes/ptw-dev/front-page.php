@@ -125,7 +125,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
             endif;
         ?>
         </div>
-        <a href="archives/projects" class="link-more"><?php esc_html_e('MORE PROJECTS ->', 'ptw-dev'); ?></a>
+        <a href="<?php echo esc_url(get_post_type_archive_link('project'))?>" class="link-more"><?php esc_html_e('MORE PROJECTS ->', 'ptw-dev'); ?></a>
     </section>
     <section id="about-container" class="about-container section">
         <div class="grid-row about-row">
@@ -194,7 +194,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
         </div>
         </div>
 
-        <a href="#myblog" class="link-more"><?php esc_html_e('MY BLOG ->', 'ptw-dev'); ?></a>
+        <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="link-more"><?php esc_html_e('MY BLOG ->', 'ptw-dev'); ?></a>
 
     </section>
     <section id="contact-container" class="contact-container section">
