@@ -112,7 +112,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
                                     <a class="ghost-btn" href="<?php echo esc_url( $github_url ); ?>" target="_blank" rel="noopener"><?php esc_html_e('GITHUB', 'ptw-dev'); ?></a>
                                 <?php endif; ?>
                             </div>
-                            <a class="ghost-btn" href="#"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
+                            <a class="ghost-btn" href="<?php the_permalink(); ?>"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
                         </div>
                     </div>
                 </div>

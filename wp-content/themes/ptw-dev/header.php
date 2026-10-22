@@ -20,7 +20,7 @@
 </head>
 <body <?php body_class(); ?>>
     <header class="site-header">
-        <div class="logo"><?php bloginfo('name')?></div>
+        <a class="logo" href="<?php echo home_url(); ?>"><?php bloginfo('name')?></a>
         <div class="header-controls">
             <div class="dropdown">
                 <?php
