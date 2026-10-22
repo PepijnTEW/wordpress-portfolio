@@ -8,9 +8,6 @@
 get_header(); ?>
 
 <aside class="sidebar">
-    <div class="indicator" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
 </aside>
 
 <main class="post-container">

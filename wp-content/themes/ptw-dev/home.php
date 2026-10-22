@@ -31,7 +31,7 @@ get_header(); ?>
                     <div class="project-bottom-wrapper">
                         <?php the_excerpt(); ?>
                         <div class="project-links">
-                            <a class="ghost-btn" href="#"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
+                            <a class="ghost-btn" href="<?php the_permalink(); ?>"><?php esc_html_e('READ MORE', 'ptw-dev'); ?></a>
                         </div>
                     </div>
                 </div>

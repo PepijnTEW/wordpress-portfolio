@@ -192,17 +192,23 @@ ul {
 
 .about-container {
     padding-bottom: var(--header-height);
-
     flex-direction: column;
     justify-content: space-between;
 
 }
+
 .contact-container {
     padding-top: var(--header-height);
     padding-bottom: var(--header-height);
     align-items: center;
 }
-
+.single-container {
+    min-height: calc(100vh - var(--header-height));
+    margin-left: var(--sidebar-width);
+    padding: 60px clamp(20px, 6vw, 110px);
+    display: flex;
+    flex-direction: column;
+}
 .site-header {
     position: sticky;
     top: 0;
@@ -473,6 +479,61 @@ ul {
     font-size: 12px;
 }
 
+.post-hero {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+time {
+    color: var(--subtitle-color);
+}
+
+.post-content {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: column;
+    margin: 0 auto;
+    color:
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 400px;
+    color: var(--primary-color);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+    color: var(--subtitle-color)
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.post-content > * {
+    margin-bottom: 1.5rem;
+}
+
+.post-content > *:last-child {
+    margin-bottom: 0;
+}
+.post-content img {
+    max-width: 100%;
+    height: auto;
+}
 @media (max-width: 900px) {
     :root { --header-height: 64px; }
 
@@ -524,7 +585,13 @@ ul {
     .post-container {
         margin-left: 0;
     }
+
     .post-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .single-container {
+        margin-left: 0px;
+        padding: 48px 20px;
     }
 }
