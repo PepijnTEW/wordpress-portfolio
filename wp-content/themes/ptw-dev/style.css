@@ -498,7 +498,6 @@ time {
     max-width: 800px;
     flex-direction: column;
     margin: 0 auto;
-    color:
 }
 
 .post-content p {
@@ -533,6 +532,19 @@ time {
 .post-content img {
     max-width: 100%;
     height: auto;
+}
+@media (max-width: 1000px) {
+    .sidebar,
+    .indicator {
+        display: none;
+    }
+    .scroll-container {
+        margin-left: 0;
+    }
+    .post-container {
+        margin-left: 0;
+    }
+
 }
 @media (max-width: 900px) {
     :root { --header-height: 64px; }
@@ -584,6 +596,7 @@ time {
 
     .post-container {
         margin-left: 0;
+        padding: 48px 20px;
     }
 
     .post-grid {
@@ -593,5 +606,10 @@ time {
     .single-container {
         margin-left: 0px;
         padding: 48px 20px;
+    }
+}
+@media (max-width: 500px) {
+    .post-grid {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
