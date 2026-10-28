@@ -439,6 +439,7 @@ ul {
 }
 
 .project-links {
+    padding-top: 12px;
     display: flex;
     gap: 12px;
     justify-content: space-between;
@@ -514,6 +515,10 @@ time {
     margin-bottom: 1.25rem;
     padding-top: 1rem;
     color: var(--subtitle-color)
+}
+
+.post-content img {
+    width: 100%;
 }
 
 .post-content ul,

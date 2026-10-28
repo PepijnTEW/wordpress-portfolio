@@ -21,6 +21,19 @@
 <body <?php body_class(); ?>>
     <header class="site-header">
         <a class="logo" href="<?php echo home_url(); ?>"><?php bloginfo('name')?></a>
+        <p><?php
+            if ( is_post_type_archive('project')) {
+                post_type_archive_title();
+            } elseif ( is_front_page()) {
+                echo "";
+            } elseif ( is_archive()) {
+                the_archive_title();
+            } elseif ( is_home()) {
+                single_post_title();
+            } else {
+                echo "";
+            }
+         ?></p>
         <div class="header-controls">
             <div class="dropdown">
                 <?php
