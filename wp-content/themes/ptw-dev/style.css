@@ -34,7 +34,6 @@ Version: 1.0
 
 @keyframes fadeup {
     from {
-        opacity: 0;
         transform: translateY(15px);
     }
     to   {
@@ -545,6 +544,7 @@ time {
     }
     .scroll-container {
         margin-left: 0;
+        scroll-snap-type: none;
     }
     .post-container {
         margin-left: 0;
@@ -571,7 +571,7 @@ time {
 
     .hero-container {
         flex-direction: column;
-        justify-content: flex-start;
+        align-items: center;
         gap: 40px;
     }
 
@@ -608,6 +608,14 @@ time {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .about-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        timeline-trigger: --trigger view() entry 30% exit 0%;
+    }
     .single-container {
         margin-left: 0px;
         padding: 48px 20px;
