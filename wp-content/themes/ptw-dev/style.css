@@ -128,6 +128,7 @@ ul {
 .about-card {
     min-height: 420px;
     padding: 24px;
+    gap: 12px;
 }
 
 .chapter {

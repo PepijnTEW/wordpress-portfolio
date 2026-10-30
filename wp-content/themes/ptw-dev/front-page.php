@@ -185,8 +185,8 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
             </div>
             <pre class="ascii">
               __
-   .,-;-;-,. /'_\
- _/_/_/_|_\_\) /
+   .,-;-;-,. /'_\      <a href="#about-card"><?php esc_html_e('Contact me!', 'ptw-dev'); ?></a>
+ _/_/_/_|_\_\) /     /
 '-<_><_><_><_>=/\
  `/_/====/_/-'\_\
   ""     ""    ""
@@ -199,7 +199,7 @@ $specs_raw  = get_post_meta( $page_id, '_cpm_specs_list', true );
     </section>
     <section id="contact-container" class="contact-container section">
         <div class="grid-row contact-row">
-            <div class="card about-card">
+            <div class="card about-card" id="about-card">
                 <div class="chapter">
                     <h2 class="label"><?php esc_html_e('// CONTACT', 'ptw-dev'); ?></h2>
                     <p class="about-content">
